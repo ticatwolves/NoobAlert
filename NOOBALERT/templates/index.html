@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+{% if session.logged %}
+{% include 'messages.html' %}
+{% else %}
+{% include 'form.html' %}
+{% endif %}
+{% endblock %}
